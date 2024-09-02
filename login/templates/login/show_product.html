@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>All Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4c08ad;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: #9ed80a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out;
+            width: 300px;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height:500px;
+            background-color: #a50202a4;
+        }
+
+        .product-image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #880b0b;
+        }
+
+        .product-description {
+            font-size: 14px;
+            text-decoration:"this so so good products";
+            color: #e30c0c;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #e75d07;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #bb2c13;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: "good project in bangladesh";
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Products</h1>
+        <div class="product-grid">
+        {% for item in my_products %}
+        
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShs5-bRuoXTOQFn-NHxgkgSvedaFMrD5c6SA&s" alt="Product 1">
+                    
+                    <img src="https://ichef.bbci.co.uk/images/ic/1920x1080/p06hk0h6.jpg" alt="Product 1">
+                </div>
+                <div class="product-info">
+                    <h2 class="product-title">Rc cola</h2>
+                    <h3 class="product-title">mango</h3>
+                    <p class="product-description">good for helath</p>
+                    <p class="product-price">60taka</p>
+                    <a href="#" class="add-to-cart-btn">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Add more product cards as needed -->
+        {% endfor %}
+    </div>
+
+
+
+        
+    </div>
+</body>
+</html>

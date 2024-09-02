@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out;
+            width: 300px;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #f4f4f4;
+        }
+
+        .product-image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Products</h1>
+        <div class="product-grid">
+        {% for item in my_products %}
+        
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="{{item.describe}}" alt="Product 1">
+                    
+                </div>
+                <div class="product-info">
+                    <h2 class="product-title">{{item.title}}</h2>
+                    <p class="product-description">{{item.describe}}</p>
+                    <p class="product-price">{{item.price}}</p>
+            
+                    <a href="#" class="add-to-cart-btn">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Add more product cards as needed -->
+        {% endfor %}
+    </div>
+
+
+
+        
+    </div>
+</body>
+</html>

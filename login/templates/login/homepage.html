@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Barlow Condensed rgb(124, 22, 22), Tahoma and Roboto;
+          background-image: url(https://images.pexels.com/photos/1128797/pexels-photo-1128797.jpeg?auto=compress&cs=tinysrgb&w=600);
+        }
+
+        .navbar {
+            background-color: #1c0fcc;
+            color: #e30f16;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0 5px 8px rgba(229, 40, 40, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links a {
+            color: #e90a67;
+            text-decoration: none;
+            font-size: 21px;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .user-info .user-name {
+            margin-right: 10px;
+        }
+
+        .navbar .user-info .logout-button {
+            background-color: #ffffff;
+            color: #13bfdd;
+            border: none;
+            border-radius: 12px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .navbar .user-info .logout-button:hover {
+            background-color: #7a008a;
+        }
+
+        .home-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .home-content h1 {
+            font-size: 36px;
+            color: #860a0a;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            font-size: 18px;
+            color: #e80a0a;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">MyWebsite</div>
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'login' %}">Login</a>
+            {% else %}
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+            <div class="user-info">
+                <span class="user-name">Welcome, {{ user.username }}</span>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="logout-button" type="submit">Logout</button>
+                </form>
+            </div>
+        {% else %}
+            <div class="nav-links">
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="home-content">
+        <h1>WELLCOME TO WEBSITE </h1>
+        <p> I LIKE TO PYTHON </p>
+    </div>
+</body>
+</html>
